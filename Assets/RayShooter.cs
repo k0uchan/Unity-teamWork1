@@ -13,6 +13,10 @@ public class RayShooter : MonoBehaviour
     public GameObject fireball;
     public Material skybox;
     public GameObject shootpanel;
+
+    public GameObject Animal_1;
+
+    public GameObject IntroductionPanel;
     public Material oskybox;
     [SerializeField] GameObject fireballPrefab;
     public int count = 3;
@@ -52,21 +56,51 @@ public class RayShooter : MonoBehaviour
 
         if (Physics.Raycast(ray_speed, out hit_speed))
         {
-            Wandering wandering = hit_speed.transform.GetComponent<Wandering>();
-            if (wandering != null)
-            {
-                wandering.speed = 1;
-                shootpanel.SetActive(true);
-            }
+            // Wandering wandering = hit_speed.transform.GetComponent<Wandering>();
+            // if (wandering != null)
+            // {
+            //     wandering.speed = 0.1f;
+            //     shootpanel.SetActive(true);
+            //     IntroductionPanel.SetActive(true);
+            // }
 
-            else
-            {
-                //wandering.speed = 0.3f;
-                shootpanel.SetActive(false);
+            // else
+            // {
+            //     //wandering.speed = 0.3f;
+            //     shootpanel.SetActive(false);
 
-            }
+            //     IntroductionPanel.SetActive(false);
+
+            // }
+
+              // ★ 新增：先判断有没有打到“Animal”这个 Tag 的物体
+    if (hit_speed.transform.CompareTag("Animal1"))   // 这里的 "Animal" 就是你在 Inspector 里创建的 Tag 名
+    {
+        // 如果你还想在瞄准时让动物减速，可以保留这几行
+        Wandering wandering = hit_speed.transform.GetComponent<Wandering>();
+        if (wandering != null)
+        {
+            wandering.speed = 0.1f;
+        }
+
+        shootpanel.SetActive(true);
+        IntroductionPanel.SetActive(true);
+    }
+    else
+    {
+        shootpanel.SetActive(false);
+        IntroductionPanel.SetActive(false);
+    }
 
         }
+
+        else
+    {
+        // 射线什么都没打到时，也要关掉界面
+        shootpanel.SetActive(false);
+        IntroductionPanel.SetActive(false);
+    }
+
         //射子弹
         if (Input.GetKeyDown(KeyCode.Space) && !EventSystem.current.IsPointerOverGameObject() && count > 0)
         {

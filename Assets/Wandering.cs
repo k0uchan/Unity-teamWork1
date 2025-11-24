@@ -11,6 +11,8 @@ public class Wandering : MonoBehaviour
 
     private bool isAlive;
 
+    public float baseSpeed = 3f; // 在 Inspector 设置
+
     [SerializeField] GameObject fireballPrefab;
     private GameObject fireball;
 
@@ -60,6 +62,7 @@ public class Wandering : MonoBehaviour
             }
 
         }
+        //Debug.Log("敌人速度 = " + speed);
     }
 
     public void SetAlive(bool alive)
@@ -69,6 +72,7 @@ public class Wandering : MonoBehaviour
 
     private void OnSpeedChanged(float value)
     {
-        speed = aseSpeed * value;
+        //speed = aseSpeed * value;
+        speed = baseSpeed * value; // 改变倍率但不影响基础速度
     }
 }

@@ -7,6 +7,10 @@ public class ReactiveTarget : MonoBehaviour
     public Material skychange;
     public Material oskybox2;
     public GameObject fire;
+
+    public float DieTime = 5.0f;
+
+    public bool isDead = false;
     [SerializeField] GameObject cubefire;
     void Start()
     {
@@ -29,13 +33,18 @@ public class ReactiveTarget : MonoBehaviour
         StartCoroutine(Die());
         //StartCoroutine(CubeIndicator(this.transform.position));
         ChangeSkybox(skychange);
+
+         isDead = true;  // 新增：标记死亡
+    //gameObject.layer = LayerMask.NameToLayer("Ignore Raycast"); // 避免射线干扰
+    gameObject.tag = "DeadEnemy";
+
         StartCoroutine(skyboxback());
     }
 
     private IEnumerator Die()
     {
         this.transform.Rotate(-75, 0, 0);
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(DieTime);
         Destroy(this.gameObject);
 
     }
@@ -66,4 +75,6 @@ public class ReactiveTarget : MonoBehaviour
         // Destroy(cube);
          yield return new WaitForSeconds(1);
     }
+
+    
 }
