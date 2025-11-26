@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23737618694745424}
   - component: {fileID: 64287919542030772}
   m_Layer: 0
-  m_Name: SM_Bld_ConcreteBase_01
+  m_Name: land
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
