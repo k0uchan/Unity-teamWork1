@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ReactiveTarget : MonoBehaviour
 {
-    public Material skychange;
-    public Material oskybox2;
+    //public Material skychange;
+    //public Material oskybox2;
     public GameObject fire;
 
     public float DieTime = 5.0f;
@@ -25,20 +25,23 @@ public class ReactiveTarget : MonoBehaviour
 
     public void ReactToHit()
     {
-        Wandering behaviour = GetComponent<Wandering>();
+          Debug.Log("ReactToHit 调用了：" + gameObject.name);
+       Wandering behaviour = GetComponent<Wandering>();
         if (behaviour != null)
         {
             behaviour.SetAlive(false);
         }
+         
+    StartCoroutine(CubeIndicator(this.transform.position));
         StartCoroutine(Die());
         //StartCoroutine(CubeIndicator(this.transform.position));
-        ChangeSkybox(skychange);
+        //ChangeSkybox(skychange);
 
          isDead = true;  // 新增：标记死亡
     //gameObject.layer = LayerMask.NameToLayer("Ignore Raycast"); // 避免射线干扰
-    gameObject.tag = "DeadEnemy";
+    //gameObject.tag = "DeadEnemy";
 
-        StartCoroutine(skyboxback());
+        //StartCoroutine(skyboxback());
     }
 
     private IEnumerator Die()
@@ -48,17 +51,17 @@ public class ReactiveTarget : MonoBehaviour
         Destroy(this.gameObject);
 
     }
-    private void ChangeSkybox(Material Skymaterial)
-    {
-        RenderSettings.skybox = Skymaterial;
+    // private void ChangeSkybox(Material Skymaterial)
+    // {
+    //     RenderSettings.skybox = Skymaterial;
 
-    }
+    // }
 
-    private IEnumerator skyboxback()
-    {
-        yield return new WaitForSeconds(5.0f);
-        RenderSettings.skybox = oskybox2;
-    }
+    // private IEnumerator skyboxback()
+    // {
+    //     yield return new WaitForSeconds(5.0f);
+    //     RenderSettings.skybox = oskybox2;
+    // }
 
     private IEnumerator CubeIndicator(Vector3 pos)
     {
