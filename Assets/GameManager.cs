@@ -6,6 +6,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject panel;
 
+    public GameObject PigPanel;
+
+    public GameObject TextMention;
+
     void Awake()
     {
         instance = this;

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -15,11 +15,16 @@ public class RayShooter : MonoBehaviour
     public GameObject shootpanel;
 
     public GameObject Animal_1;
+    public GameObject PigPanel;
 
     public GameObject IntroductionPanel;
     public Material oskybox;
     [SerializeField] GameObject fireballPrefab;
-    public int count = 3;
+    public int count = 10;
+
+    ReactiveTarget EnemyCondition;
+
+
     void Start()
     {
         Cam = GetComponent<Camera>();
@@ -33,6 +38,8 @@ public class RayShooter : MonoBehaviour
             }
         }
         shootpanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
+        
 
 
     }
@@ -54,54 +61,125 @@ public class RayShooter : MonoBehaviour
         Ray ray_speed = Cam.ScreenPointToRay(point_speed);
         RaycastHit hit_speed;
 
+        shootpanel.SetActive(false);
+IntroductionPanel.SetActive(false);
+PigPanel.SetActive(false);
+
         if (Physics.Raycast(ray_speed, out hit_speed))
         {
-            // Wandering wandering = hit_speed.transform.GetComponent<Wandering>();
-            // if (wandering != null)
-            // {
-            //     wandering.speed = 0.1f;
-            //     shootpanel.SetActive(true);
-            //     IntroductionPanel.SetActive(true);
-            // }
+    //         // Wandering wandering = hit_speed.transform.GetComponent<Wandering>();
+    //         // if (wandering != null)
+    //         // {
+    //         //     wandering.speed = 0.1f;
+    //         //     shootpanel.SetActive(true);
+    //         //     IntroductionPanel.SetActive(true);
+    //         // }
 
-            // else
-            // {
-            //     //wandering.speed = 0.3f;
-            //     shootpanel.SetActive(false);
+    //         // else
+    //         // {
+    //         //     //wandering.speed = 0.3f;
+    //         //     shootpanel.SetActive(false);
 
-            //     IntroductionPanel.SetActive(false);
+    //         //     IntroductionPanel.SetActive(false);
 
-            // }
+    //         // }
 
-              // ★ 新增：先判断有没有打到“Animal”这个 Tag 的物体
-    if (hit_speed.transform.CompareTag("Animal1"))   // 这里的 "Animal" 就是你在 Inspector 里创建的 Tag 名
+    //           // ★ 新增：先判断有没有打到“Animal”这个 Tag 的物体
+    // if (hit_speed.transform.CompareTag("Animal1"))   // Tag 名
+    // {
+    //     // 如果你还想在瞄准时让动物减速，可以保留这几行
+    //     //Wandering wandering = hit_speed.transform.GetComponent<Wandering>();
+    //     // if (wandering != null)
+    //     // {
+    //     //     wandering.speed = 0.1f;
+    //     // }
+
+    //     shootpanel.SetActive(true);
+    //     IntroductionPanel.SetActive(true);
+    // }
+    // else
+    // {
+    //     shootpanel.SetActive(false);
+    //     IntroductionPanel.SetActive(false);
+    // }
+
+    //     }
+           string tag = hit_speed.transform.tag;
+
+           ReactiveTarget reactiveTarget=hit_speed.transform.GetComponent<ReactiveTarget>();
+
+            if (reactiveTarget != null && !reactiveTarget.isDead)
+            {
+    if (tag == "Animal1")
     {
-        // 如果你还想在瞄准时让动物减速，可以保留这几行
-        Wandering wandering = hit_speed.transform.GetComponent<Wandering>();
-        if (wandering != null)
-        {
-            wandering.speed = 0.1f;
-        }
-
         shootpanel.SetActive(true);
         IntroductionPanel.SetActive(true);
     }
-    else
-    {
-        shootpanel.SetActive(false);
-        IntroductionPanel.SetActive(false);
-    }
 
+    else if (tag == "Pig")
+    {
+        shootpanel.SetActive(true);
+        PigPanel.SetActive(true);
+    }
+            }
+
+    
         }
+
+    //     if (Physics.Raycast(ray_speed, out hit_speed))
+    //     {
+    //         // Wandering wandering = hit_speed.transform.GetComponent<Wandering>();
+    //         // if (wandering != null)
+    //         // {
+    //         //     wandering.speed = 0.1f;
+    //         //     shootpanel.SetActive(true);
+    //         //     IntroductionPanel.SetActive(true);
+    //         // }
+
+    //         // else
+    //         // {
+    //         //     //wandering.speed = 0.3f;
+    //         //     shootpanel.SetActive(false);
+
+    //         //     IntroductionPanel.SetActive(false);
+
+    //         // }
+
+    //           //先判断有没有打到“Animal”这个 Tag 的物体
+    // if (hit_speed.transform.CompareTag("Pig"))   // Tag 名
+    // {
+    //     // 如果你还想在瞄准时让动物减速，可以保留这几行
+    //     //Wandering wandering = hit_speed.transform.GetComponent<Wandering>();
+    //     // if (wandering != null)
+    //     // {
+    //     //     wandering.speed = 0.1f;
+    //     // }
+
+    //     shootpanel.SetActive(true);
+    //     PigPanel.SetActive(true);
+    // }
+    // else
+    // {
+    //     shootpanel.SetActive(false);
+    //     PigPanel.SetActive(false);
+    // }
+
+    //     }
 
         else
     {
         // 射线什么都没打到时，也要关掉界面
         shootpanel.SetActive(false);
         IntroductionPanel.SetActive(false);
+         PigPanel.SetActive(false);
     }
 
+    
+
+    
+
         //射子弹
+       // if (Input.GetKeyDown(KeyCode.Space) && !EventSystem.current.IsPointerOverGameObject() && count > 0)
         if (Input.GetKeyDown(KeyCode.Space) && !EventSystem.current.IsPointerOverGameObject() && count > 0)
         {
 
@@ -115,8 +193,8 @@ public class RayShooter : MonoBehaviour
                 ReactiveTarget target = hitObject.GetComponent<ReactiveTarget>();
                 StartCoroutine(SphereIndicator(hit.point));
                     //StartCoroutine(ScalerReduce());
-                    ChangeSkybox(skybox);
-                    StartCoroutine(skyboxback());
+                    // ChangeSkybox(skybox);
+                    // StartCoroutine(skyboxback());
 
                 if (target != null)
                 {
@@ -186,14 +264,14 @@ public class RayShooter : MonoBehaviour
 
 
     }
-    private IEnumerator skyboxback()
-    {
-        yield return new WaitForSeconds(2.0f);
-        RenderSettings.skybox = oskybox;
-    }
-    private void ChangeSkybox(Material Skymaterial)
-    {
-        RenderSettings.skybox = Skymaterial;
+    // private IEnumerator skyboxback()
+    // {
+    //     yield return new WaitForSeconds(2.0f);
+    //     RenderSettings.skybox = oskybox;
+    // }
+    // private void ChangeSkybox(Material Skymaterial)
+    // {
+    //     RenderSettings.skybox = Skymaterial;
 
-    }
+    // }
 }

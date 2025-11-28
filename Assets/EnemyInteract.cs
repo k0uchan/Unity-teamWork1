@@ -9,12 +9,17 @@ public class EnemyInteract : MonoBehaviour
     //public GameObject infoPanel;            // UI 面板
     private ReactiveTarget target;
 
-    private bool canInteract = false;       // 玩家是否在范围内
+
+    public bool canInteract = false;       // 玩家是否在范围内
+
+    public GameObject TheObject;
 
     void Start()
     {
         target = GetComponent<ReactiveTarget>();
     }
+
+     
 
     void Update()
     {
@@ -23,20 +28,55 @@ public class EnemyInteract : MonoBehaviour
             // 获取玩家位置（摄像机即玩家）
             float dist = Vector3.Distance(Camera.main.transform.position, transform.position);
 
-            if (dist <= interactDistance)
-            {
-                canInteract = true;
-            }
-            else
-            {
-                canInteract = false;
-            }
+            canInteract = (dist <= interactDistance);
 
-            // 玩家在范围内并按下鼠标左键
-            if (canInteract && Input.GetMouseButtonDown(0))
-            {
-                GameManager.instance.panel.SetActive(true);
-            }
+            // if (dist <= interactDistance)
+            // {
+            //     canInteract = true;
+            // }
+            // else
+            // {
+            //     canInteract = false;
+            // }
+
+            // // 玩家在范围内并按下鼠标左键
+            // if (canInteract && Input.GetMouseButtonDown(0))
+            // {
+            //     GameManager.instance.panel.SetActive(true);
+            // }
+           
+             GameManager.instance.TextMention.SetActive(canInteract);
         }
+        
+
+         if (canInteract && Input.GetKeyDown(KeyCode.E))
+        {
+            OpenUIPanel();
+        }
+
+         if (TheObject == null)
+        {
+            canInteract = false;
+            GameManager.instance.TextMention.SetActive(false);
+        }
+
+         
+
+
+    }
+
+    void OpenUIPanel()
+    {
+        string tag = gameObject.tag;
+
+        if (tag == "Animal1")
+        {
+            GameManager.instance.panel.SetActive(true);
+        }
+        else if (tag == "Pig")
+        {
+            GameManager.instance.PigPanel.SetActive(true);
+        }
+       
     }
 }
