@@ -7,7 +7,7 @@ public class EnemyInteract : MonoBehaviour
 
     //public GameObject infoPanel;            // UI 面板
     //public GameObject infoPanel;            // UI 面板
-    private ReactiveTarget target;
+    public ReactiveTarget target;
 
 
     public bool canInteract = false;       // 玩家是否在范围内
@@ -45,7 +45,7 @@ public class EnemyInteract : MonoBehaviour
             //     GameManager.instance.panel.SetActive(true);
             // }
            
-             GameManager.instance.TextMention.SetActive(canInteract);
+             //GameManager.instance.TextMention.SetActive(canInteract);
         }
         
 
@@ -54,11 +54,11 @@ public class EnemyInteract : MonoBehaviour
             OpenUIPanel();
         }
 
-         if (TheObject == null)
-        {
-            canInteract = false;
-            GameManager.instance.TextMention.SetActive(false);
-        }
+        //  if (TheObject == null)
+        // {
+        //     canInteract = false;
+        //     GameManager.instance.TextMention.SetActive(false);
+        // }
 
          
 
@@ -72,10 +72,19 @@ public class EnemyInteract : MonoBehaviour
         if (tag == "Animal1")
         {
             GameManager.instance.panel.SetActive(true);
+            GameManager.instance.ElephantDied.SetActive(true);
+            GameManager.instance.ElephantAlive.SetActive(false);
+            GameManager.instance.uncheckelephant.SetActive(false);
+            GameManager.instance.CheckElephant.SetActive(true);
+            
         }
         else if (tag == "Pig")
         {
             GameManager.instance.PigPanel.SetActive(true);
+             GameManager.instance.PigAlive.SetActive(false);
+             GameManager.instance.PigDied.SetActive(true);
+             GameManager.instance.uncheckpig.SetActive(false);
+             GameManager.instance.CheckPig.SetActive(true);
         }
        
     }

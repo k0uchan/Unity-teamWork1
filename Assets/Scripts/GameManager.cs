@@ -10,6 +10,16 @@ public class GameManager : MonoBehaviour
 
     public GameObject TextMention;
 
+    public GameObject PigAlive;
+    public GameObject PigDied;
+    public GameObject CheckPig;
+    public GameObject uncheckpig;
+
+    public GameObject ElephantAlive;
+    public GameObject ElephantDied;
+    public GameObject CheckElephant;
+    public GameObject uncheckelephant;
+
     void Awake()
     {
         instance = this;
