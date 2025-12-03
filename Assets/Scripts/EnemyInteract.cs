@@ -86,6 +86,14 @@ public class EnemyInteract : MonoBehaviour
              GameManager.instance.uncheckpig.SetActive(false);
              GameManager.instance.CheckPig.SetActive(true);
         }
+        else if (tag == "Panda")
+        {
+            GameManager.instance.PandaPanel.SetActive(true);
+             GameManager.instance.PandaAlive.SetActive(false);
+             GameManager.instance.PandaDied.SetActive(true);
+             GameManager.instance.uncheckpanda.SetActive(false);
+             GameManager.instance.CheckPanda.SetActive(true);
+        }
        
     }
 }

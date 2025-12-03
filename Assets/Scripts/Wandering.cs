@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Wandering : MonoBehaviour
 {
-    public float speed = 0f;
+    public float speed = 0.8f;
     public float aseSpeed = 0f;
     public float obstaclerange = 5.0f;
 
     private bool isAlive;
 
-    public float baseSpeed = 3f; // 在 Inspector 设置
+    public float baseSpeed = 1f; // 在 Inspector 设置
 
     [SerializeField] GameObject fireballPrefab;
     private GameObject fireball;

@@ -163,7 +163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6798584958588547822}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.29706764, z: 0, w: 0.9548565}
   m_LocalPosition: {x: 0.278, y: 0.58, z: 1.978}
   m_LocalScale: {x: 0.8, y: 0.96378, z: 0.8}
   m_ConstrainProportionsScale: 0
@@ -252,10 +252,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6798584958588547822}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_Drag: 0
+  m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -410,6 +410,10 @@ MonoBehaviour:
   fireball: {fileID: 0}
   skybox: {fileID: 2100000, guid: 42dc3b9b0dd2040fc9ef0182fdea0e50, type: 2}
   shootpanel: {fileID: 0}
+  Animal_1: {fileID: 0}
+  PigPanel: {fileID: 0}
+  PandaPanel: {fileID: 0}
+  IntroductionPanel: {fileID: 0}
   oskybox: {fileID: 2100000, guid: fa95802f80bd745cfb5e9c89f7e22341, type: 2}
   fireballPrefab: {fileID: 1795389271215262119, guid: b9ec9fddee3f9f54caf04740583d0392, type: 3}
   count: 10

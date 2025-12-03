@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject PigPanel;
 
+    public GameObject PandaPanel;
+
     public GameObject TextMention;
 
     public GameObject PigAlive;
@@ -19,6 +21,11 @@ public class GameManager : MonoBehaviour
     public GameObject ElephantDied;
     public GameObject CheckElephant;
     public GameObject uncheckelephant;
+
+    public GameObject PandaAlive;
+    public GameObject PandaDied;
+    public GameObject CheckPanda;
+    public GameObject uncheckpanda;
 
     void Awake()
     {

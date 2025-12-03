@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.UIElements;
 
 public class RayShooter : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class RayShooter : MonoBehaviour
 
     public GameObject Animal_1;
     public GameObject PigPanel;
+    public GameObject PandaPanel;
 
     public GameObject IntroductionPanel;
     public Material oskybox;
@@ -64,6 +66,7 @@ public class RayShooter : MonoBehaviour
         shootpanel.SetActive(false);
 IntroductionPanel.SetActive(false);
 PigPanel.SetActive(false);
+PandaPanel.SetActive(false);
 
         if (Physics.Raycast(ray_speed, out hit_speed))
         {
@@ -121,6 +124,12 @@ PigPanel.SetActive(false);
         shootpanel.SetActive(true);
         PigPanel.SetActive(true);
     }
+
+    else if(tag == "Panda")
+                {
+                    shootpanel.SetActive(true);
+                    PandaPanel.SetActive(true);
+                }
             }
 
     
@@ -172,6 +181,7 @@ PigPanel.SetActive(false);
         shootpanel.SetActive(false);
         IntroductionPanel.SetActive(false);
          PigPanel.SetActive(false);
+         PandaPanel.SetActive(false);
     }
 
     
@@ -219,19 +229,19 @@ PigPanel.SetActive(false);
         }
     }
 
-    private void OnGUI()
-    {
-        GUIStyle gUIStyle = new GUIStyle();
-        gUIStyle.fontSize = 140;
-        int size = 12;
-        float posX = Cam.pixelWidth / 2 - size / 2;
-        float posY = Cam.pixelHeight / 2 - size / 2;
-        GUI.Label(new Rect(posX, posY, size, size), "+", gUIStyle);
-        if (GUI.Button(new Rect(50, 50, 200, 80), "test"))
-        {
-            Debug.Log("test button");
-        }
-    }
+    // private void OnGUI()
+    // {
+    //     GUIStyle gUIStyle = new GUIStyle();
+    //     gUIStyle.fontSize = 140;
+    //     int size = 12;
+    //     float posX = Cam.pixelWidth / 2 - size / 2;
+    //     float posY = Cam.pixelHeight / 2 - size / 2;
+    //     GUI.Label(new Rect(posX, posY, size, size), "+", gUIStyle);
+    //     // if (GUI.Button(new Rect(50, 50, 200, 80), "test"))
+    //     // {
+    //     //     Debug.Log("test button");
+    //     // }
+    // }
 
     //Coroutine
     //必须用StartCouroutine()调用

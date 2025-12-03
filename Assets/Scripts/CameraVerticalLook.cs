@@ -10,6 +10,10 @@ public class CameraVerticalLook : MonoBehaviour
 
     void Update()
     {
+         if (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt) || Input.GetKey(KeyCode.Tab))
+        {
+            return;
+        }
         verticalRot -= Input.GetAxis("Mouse Y") * sensitivityVer;
         verticalRot = Mathf.Clamp(verticalRot, minVert, maxVert);
 
