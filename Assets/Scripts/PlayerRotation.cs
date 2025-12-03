@@ -3,10 +3,12 @@ using UnityEngine;
 public class PlayerRotation : MonoBehaviour
 {
     public float sensitivityHor = 9.0f;
+    public GameObject illustrateAct;
+    public GameObject setActive;
 
     void Update()
     {
-         if (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt) || Input.GetKey(KeyCode.Tab))
+         if (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt) || illustrateAct.activeSelf||setActive.activeSelf)
         {
             return;
         }

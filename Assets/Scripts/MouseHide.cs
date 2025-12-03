@@ -8,6 +8,9 @@ public class MouseHide : MonoBehaviour
     public float mouseSensitivity = 200f;
     public Transform playerBody;
 
+    public GameObject illustratePanel;
+    public GameObject SettingPanel;
+
     private float xRotation = 0f;
 
     void Start()
@@ -19,9 +22,10 @@ public class MouseHide : MonoBehaviour
     void Update()
     {
         bool isAltHeld = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
-        bool isTabHeld = Input.GetKey(KeyCode.Tab);
+        bool isTabActive = illustratePanel.activeSelf;
+        bool isSetActive = SettingPanel.activeSelf;
 
-        if (isAltHeld || isTabHeld)
+        if (isAltHeld || isTabActive||isSetActive)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

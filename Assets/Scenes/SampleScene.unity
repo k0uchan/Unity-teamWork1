@@ -14877,6 +14877,8 @@ MonoBehaviour:
   sensitivityVer: 9
   minVert: -45
   maxVert: 45
+  illustrateAct: {fileID: 0}
+  setActive: {fileID: 0}
 --- !u!1001 &966003441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27814,6 +27816,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 200
   playerBody: {fileID: 1979533396}
+  illustratePanel: {fileID: 1114800127}
+  SettingPanel: {fileID: 383311148}
 --- !u!1 &1608325090 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2105266470180996698, guid: 5d6b9e6b95f552f418bd7ffe47d910b8, type: 3}
@@ -38618,6 +38622,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 112843780357740307, guid: a206e6d6fc8bd7d4aa96d6173166493f, type: 3}
+      propertyPath: setActive
+      value: 
+      objectReference: {fileID: 383311148}
+    - target: {fileID: 112843780357740307, guid: a206e6d6fc8bd7d4aa96d6173166493f, type: 3}
+      propertyPath: illustrateAct
+      value: 
+      objectReference: {fileID: 1114800127}
     - target: {fileID: 853055154963124208, guid: a206e6d6fc8bd7d4aa96d6173166493f, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -38698,6 +38710,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5816347658293690599, guid: a206e6d6fc8bd7d4aa96d6173166493f, type: 3}
+      propertyPath: setActive
+      value: 
+      objectReference: {fileID: 383311148}
+    - target: {fileID: 5816347658293690599, guid: a206e6d6fc8bd7d4aa96d6173166493f, type: 3}
+      propertyPath: illustrateAct
+      value: 
+      objectReference: {fileID: 1114800127}
     - target: {fileID: 6798584958588547822, guid: a206e6d6fc8bd7d4aa96d6173166493f, type: 3}
       propertyPath: m_Name
       value: body
