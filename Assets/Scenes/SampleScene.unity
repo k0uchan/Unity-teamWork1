@@ -1024,8 +1024,8 @@ Transform:
   m_LocalScale: {x: 0.5555556, y: 0.5555556, z: 0.5555556}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1444228056}
   - {fileID: 675442906}
+  - {fileID: 1444228056}
   m_Father: {fileID: 1941743437}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &81574311
@@ -9921,8 +9921,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 767, y: 295.25}
-  m_SizeDelta: {x: 1532, y: 354}
+  m_AnchoredPosition: {x: 117.1, y: 260}
+  m_SizeDelta: {x: 922.4, y: 413.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &675442907
 MonoBehaviour:
@@ -9937,14 +9937,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.92156863}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d4a9a1ee1dc1e48cb9f159829eb64b15, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd04043cd6d134b8aa78f18cea96b9a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21396,7 +21396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1277417401
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38944,11 +38944,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1311354158054374252, guid: a206e6d6fc8bd7d4aa96d6173166493f, type: 3}
       propertyPath: speed
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2548074575520487259, guid: a206e6d6fc8bd7d4aa96d6173166493f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: -38.6
       objectReference: {fileID: 0}
     - target: {fileID: 2548074575520487259, guid: a206e6d6fc8bd7d4aa96d6173166493f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38956,7 +38956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2548074575520487259, guid: a206e6d6fc8bd7d4aa96d6173166493f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -202.4
+      value: -144.1
       objectReference: {fileID: 0}
     - target: {fileID: 2548074575520487259, guid: a206e6d6fc8bd7d4aa96d6173166493f, type: 3}
       propertyPath: m_LocalRotation.w
