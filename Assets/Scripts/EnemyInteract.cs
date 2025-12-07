@@ -14,9 +14,13 @@ public class EnemyInteract : MonoBehaviour
 
     public GameObject TheObject;
 
+    AudioSource audioSource;
+    public AudioClip ClickAudio;
+
     void Start()
     {
         target = GetComponent<ReactiveTarget>();
+        audioSource = GetComponent<AudioSource>();
     }
 
      
@@ -52,6 +56,8 @@ public class EnemyInteract : MonoBehaviour
          if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
             OpenUIPanel();
+            audioSource.PlayOneShot(ClickAudio);
+            
         }
 
         //  if (TheObject == null)

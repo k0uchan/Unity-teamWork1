@@ -24,11 +24,15 @@ public class RayShooter : MonoBehaviour
     [SerializeField] GameObject fireballPrefab;
     public int count = 10;
 
+    public AudioClip ShootAudio;
+    AudioSource audioSource;
+
     ReactiveTarget EnemyCondition;
 
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         Cam = GetComponent<Camera>();
         if (countinput != null)
         {
@@ -221,6 +225,7 @@ PandaPanel.SetActive(false);
                 //     StartCoroutine(skyboxback());
 
                 // }
+                audioSource.PlayOneShot(ShootAudio);
 
                 Debug.Log("Hit" + hit.point);
                 count--;

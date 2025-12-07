@@ -11,9 +11,13 @@ public class ReactiveTarget : MonoBehaviour
     public float DieTime = 5.0f;
 
     public bool isDead = false;
+
+    AudioSource audioSource;
+    public AudioClip BeHit;
     [SerializeField] GameObject cubefire;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -38,10 +42,14 @@ public class ReactiveTarget : MonoBehaviour
         //ChangeSkybox(skychange);
 
          isDead = true;  // 新增：标记死亡
-    //gameObject.layer = LayerMask.NameToLayer("Ignore Raycast"); // 避免射线干扰
-    //gameObject.tag = "DeadEnemy";
+                         //gameObject.layer = LayerMask.NameToLayer("Ignore Raycast"); // 避免射线干扰
+                         //gameObject.tag = "DeadEnemy";
 
         //StartCoroutine(skyboxback());
+        if (isDead)
+        {
+            audioSource.PlayOneShot(BeHit);
+        }
     }
 
     private IEnumerator Die()
@@ -51,6 +59,8 @@ public class ReactiveTarget : MonoBehaviour
         Destroy(this.gameObject);
 
     }
+
+    
     // private void ChangeSkybox(Material Skymaterial)
     // {
     //     RenderSettings.skybox = Skymaterial;
