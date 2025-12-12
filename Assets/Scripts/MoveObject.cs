@@ -47,11 +47,10 @@ public class MoveObject : MonoBehaviour
         //float deltaZ = Input.GetAxis("Vertical") * speed ;
         //float deltaY = jumpheight;
         //bool jump = false;
-        // 获取水平和垂直输入值
         float deltaX = Input.GetAxis("Horizontal");
         float deltaZ = Input.GetAxis("Vertical");
 
-        // 计算物体的移动方向和速度，并进行移动
+        
         Vector3 moveDirection = new Vector3(deltaX, 0f, deltaZ);
         transform.Translate(speed * moveDirection.normalized * Time.deltaTime);
         if (Input.GetKeyDown(KeyCode.Z))

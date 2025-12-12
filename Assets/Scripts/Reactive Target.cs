@@ -41,7 +41,7 @@ public class ReactiveTarget : MonoBehaviour
         //StartCoroutine(CubeIndicator(this.transform.position));
         //ChangeSkybox(skychange);
 
-         isDead = true;  // 新增：标记死亡
+         isDead = true;  
                          //gameObject.layer = LayerMask.NameToLayer("Ignore Raycast"); // 避免射线干扰
                          //gameObject.tag = "DeadEnemy";
 
@@ -84,7 +84,7 @@ public class ReactiveTarget : MonoBehaviour
             fire.transform.rotation = transform.rotation;
 
         }
-        // yield return new WaitForSeconds(1);//等待一秒钟
+        // yield return new WaitForSeconds(1);
         // Destroy(cube);
          yield return new WaitForSeconds(1);
     }

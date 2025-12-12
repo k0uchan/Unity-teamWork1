@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class EnemyInteract : MonoBehaviour
 {
-    public float interactDistance = 2f;      // 玩家靠多近才能交互
+    public float interactDistance = 2f;      
 
-    //public GameObject infoPanel;            // UI 面板
-    //public GameObject infoPanel;            // UI 面板
+    
     public ReactiveTarget target;
 
 
-    public bool canInteract = false;       // 玩家是否在范围内
+    public bool canInteract = false;      
 
     public GameObject TheObject;
 
@@ -29,7 +28,7 @@ public class EnemyInteract : MonoBehaviour
     {
         if (target != null && target.isDead)
         {
-            // 获取玩家位置（摄像机即玩家）
+            
             float dist = Vector3.Distance(Camera.main.transform.position, transform.position);
 
             canInteract = (dist <= interactDistance);
@@ -43,7 +42,7 @@ public class EnemyInteract : MonoBehaviour
             //     canInteract = false;
             // }
 
-            // // 玩家在范围内并按下鼠标左键
+            
             // if (canInteract && Input.GetMouseButtonDown(0))
             // {
             //     GameManager.instance.panel.SetActive(true);

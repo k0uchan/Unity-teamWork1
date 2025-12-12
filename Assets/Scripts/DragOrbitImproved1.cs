@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/* 
- * This is an improved orbit script based on the MouseOrbitImproved script found
- * on the unity community wiki. It should run smoother then the original version
- * 
- * */
+
 [AddComponentMenu("Camera-Control/Mouse drag Orbit with zoom")]
 public class DragOrbitImproved : MonoBehaviour
 {

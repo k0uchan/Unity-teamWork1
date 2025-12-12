@@ -9,7 +9,7 @@ public class BagUI : MonoBehaviour
 
     void Update()
     {
-        // 按 Tab 打开关闭背包
+       
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             bagPanel.SetActive(!bagPanel.activeSelf);
@@ -21,11 +21,11 @@ public class BagUI : MonoBehaviour
 
     void RefreshUI()
     {
-        // 清空旧内容
+        
         foreach (Transform child in container)
             Destroy(child.gameObject);
 
-        // 添加新的物品
+       
         foreach (Sprite icon in BagSystem.instance.collectedAnimals)
         {
             GameObject slot = Instantiate(slotPrefab, container);

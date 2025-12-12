@@ -20,7 +20,7 @@ public class CameraVerticalLook : MonoBehaviour
         verticalRot -= Input.GetAxis("Mouse Y") * sensitivityVer;
         verticalRot = Mathf.Clamp(verticalRot, minVert, maxVert);
 
-        // 只改变X轴角度（俯仰）
+        
         transform.localEulerAngles = new Vector3(verticalRot, 0, 0);
     }
 }

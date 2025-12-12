@@ -43,10 +43,9 @@ public class PlayerCharactar : MonoBehaviour
         Debug.Log("Player Hurt");
         RenderSettings.skybox = hurtsky;
         StartCoroutine(skyboxback());
-        // 调用淡入效果
         /* FadeIn();*/
 
-        // 淡出
+        
         healthpanel.SetActive(true);
         StartCoroutine(FadeOutHitEffect());
         //StartCoroutine(DoFade(1, fadeInDuration));
@@ -95,18 +94,16 @@ public class PlayerCharactar : MonoBehaviour
     //}
     private IEnumerator FadeOutHitEffect()
     {
-        // 获取被打中的效果对象的 Image 或 Text 组件（根据实际情况选择）
         Image hitImage = healthpanel.GetComponent<Image>();
         //Text hitText = healthpanel.GetComponent<Text>();
 
-        // 设置初始透明度
         float alpha = 1f;
 
         while (alpha > 0f)
         {
             alpha -= Time.deltaTime;
 
-            // 根据组件类型设置透明度
+          
             if (hitImage != null)
             {
                 hitImage.color = new Color(hitImage.color.r, hitImage.color.g, hitImage.color.b, alpha);
@@ -119,7 +116,7 @@ public class PlayerCharactar : MonoBehaviour
             yield return null;
         }
 
-        // 隐藏被打中的效果对象
+       
         healthpanel.SetActive(false);
     }
 

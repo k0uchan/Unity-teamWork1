@@ -91,10 +91,10 @@ PandaPanel.SetActive(false);
 
     //         // }
 
-    //           // ★ 新增：先判断有没有打到“Animal”这个 Tag 的物体
+    //           
     // if (hit_speed.transform.CompareTag("Animal1"))   // Tag 名
     // {
-    //     // 如果你还想在瞄准时让动物减速，可以保留这几行
+    //     
     //     //Wandering wandering = hit_speed.transform.GetComponent<Wandering>();
     //     // if (wandering != null)
     //     // {
@@ -158,10 +158,10 @@ PandaPanel.SetActive(false);
 
     //         // }
 
-    //           //先判断有没有打到“Animal”这个 Tag 的物体
+    //          
     // if (hit_speed.transform.CompareTag("Pig"))   // Tag 名
     // {
-    //     // 如果你还想在瞄准时让动物减速，可以保留这几行
+   
     //     //Wandering wandering = hit_speed.transform.GetComponent<Wandering>();
     //     // if (wandering != null)
     //     // {
