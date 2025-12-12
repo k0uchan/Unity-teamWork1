@@ -146,14 +146,14 @@ RectTransform:
   m_GameObject: {fileID: 209566691}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.94, y: 1.94, z: 1.94}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1979237365}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -436.5, y: -282.1}
+  m_AnchoredPosition: {x: 176, y: -90}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &209566693
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Xueling Sun & Jinyu Wang
+  m_text: Jinyu Wang & Xueling Sun
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 13db079d5f2e94efa877dea88bdf6bf9, type: 2}
   m_sharedMaterial: {fileID: 1830051423753963563, guid: 13db079d5f2e94efa877dea88bdf6bf9, type: 2}
@@ -1250,7 +1250,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 4eaaf19ee6e3f864d9510ed650401711, type: 3}
+  m_Resource: {fileID: 8300000, guid: aa7d81aa28748d044a3528bdc55be61c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -1737,8 +1737,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1963412072}
-  - {fileID: 790176995}
   - {fileID: 209566692}
+  - {fileID: 790176995}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
